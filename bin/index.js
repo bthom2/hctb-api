@@ -79,6 +79,7 @@ app.post('/login', function (req, res) {
             .then(json => {
             var lat, lon, isInRange, geoFenceMi, status, busStop, scheduled;
             console.log(json);
+            isInRange = false;
             const jResp = json;
             if (jResp.d.includes('SetBusPushPin')) {
                 status = /Actual: (.+)','/i.exec(jResp.d)[1];
@@ -90,12 +91,14 @@ app.post('/login', function (req, res) {
                 const factor = 0.621371;
                 geoFenceMi = geoFenceKM * factor;
                 const geoRadius = 0.5;
-                isInRange = false;
                 if (geoFenceMi <= geoRadius) {
                     isInRange = true;
                 }
+                res.json(Object.assign(Object.assign({ success: true }, value), { lat: lat, lon: lon, range: isInRange, distance: geoFenceMi, status: status, busStop: busStop, scheduled: scheduled }));
             }
-            res.json(Object.assign(Object.assign({ success: true }, value), { lat: lat, lon: lon, range: isInRange, distance: geoFenceMi, status: status, busStop: busStop, scheduled: scheduled }));
+            else {
+                res.json(Object.assign(Object.assign({ success: true }, value), { lat: 0, lon: 0, range: isInRange, distance: 0, status: 'Not in Service', busStop: 'Not in Service', scheduled: 'Not in Service' }));
+            }
         });
         yield browser.close();
         console.log('[Info] Browser instance closed');
