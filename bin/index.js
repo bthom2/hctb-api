@@ -19,7 +19,7 @@ app.post('/login', function (req, res) {
                 success: false,
                 error: 'Please provide all credentals',
             });
-        const browser = yield puppeteer.launch({ headless: 'new' });
+        const browser = yield puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
         console.log('[Info] Browser instance started');
         const page = yield browser.newPage();
         console.log('[Info] Opened a new page');

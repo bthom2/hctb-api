@@ -11,7 +11,7 @@ app.post('/login', async function (req, res) {
         success: false,
         error: 'Please provide all credentals',
       });
-    const browser = await puppeteer.launch({ headless: 'new' });
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
     console.log('[Info] Browser instance started');
   
     const page = await browser.newPage();
