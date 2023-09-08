@@ -107,7 +107,7 @@ app.post('/login', async function (req, res) {
           );
           const factor = 0.621371;
           geoFenceMi = geoFenceKM * factor;
-          const geoRadius = 0.5;
+          const geoRadius = 0.25;
           if (geoFenceMi <= geoRadius) {
             isInRange = true;
           }

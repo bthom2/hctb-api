@@ -90,7 +90,7 @@ app.post('/login', function (req, res) {
                 const geoFenceKM = distance(43.41557963621447, -88.15326684577983, lat, lon);
                 const factor = 0.621371;
                 geoFenceMi = geoFenceKM * factor;
-                const geoRadius = 0.5;
+                const geoRadius = 0.25;
                 if (geoFenceMi <= geoRadius) {
                     isInRange = true;
                 }
