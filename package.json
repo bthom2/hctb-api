@@ -1,28 +1,33 @@
 {
-    "name": "hctbb-api",
-    "private": true,
-    "version": "1.0.0",
-    "description": "An API for Here Comes The Bus (from Synovia)",
-    "main": "index.js",
-    "scripts": {
-      "start": "node index.js"
-    },
-    "dependencies": {
-      "express": "^4.17.1",
-      "node-fetch": "^2.6.7",
-      "puppeteer": "^16.0.0"
-    },
-    "engines": {
-      "node": "16.x"
-    },
-    "repository": {
-      "url": "https://github.com/aboutdavid/hctb-api"
-    },
-    "license": "AGPL-3.0-or-later",
-    "keywords": [
-      "here comes the bus",
-      "bus",
-      "synovia"
-    ]
+  "name": "hctbb-api",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An API for Here Comes The Bus",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "gps-distance": "^0.0.4",
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^21.1.1",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "repository": {
+    "url": "https://github.com/bthom2/hctb-api"
+  },
+  "license": "AGPL-3.0-or-later",
+  "keywords": [
+    "here comes the bus",
+    "bus"
+  ],
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.5.9"
   }
-  
+}
