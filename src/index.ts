@@ -129,7 +129,7 @@ app.post('/login', async function (req, res) {
     console.log('[Info] Browser instance closed');
   });
   
-  const listener = app.listen(process.env.PORT || 8080, () => {
+  const listener = app.listen(process.env.PORT || 8086, () => {
   });
 
   
