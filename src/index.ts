@@ -17,7 +17,7 @@ app.post('/login', async function (req, res) {
     const page = await browser.newPage();
     console.log('[Info] Opened a new page');
     const q = req.query as Req_Query;
-    await page.goto('https://login.herecomesthebus.com/Authenticate.aspx', {timeout: 60});
+    await page.goto('https://login.herecomesthebus.com/Authenticate.aspx', {timeout: 60000});
     await page.type(
       `input[name="ctl00$ctl00$cphWrapper$cphContent$tbxUserName"]`,
       q.user,

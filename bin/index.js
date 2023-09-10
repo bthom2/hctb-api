@@ -24,7 +24,7 @@ app.post('/login', function (req, res) {
         const page = yield browser.newPage();
         console.log('[Info] Opened a new page');
         const q = req.query;
-        yield page.goto('https://login.herecomesthebus.com/Authenticate.aspx', { timeout: 60 });
+        yield page.goto('https://login.herecomesthebus.com/Authenticate.aspx', { timeout: 60000 });
         yield page.type(`input[name="ctl00$ctl00$cphWrapper$cphContent$tbxUserName"]`, q.user);
         yield page.type(`input[name="ctl00$ctl00$cphWrapper$cphContent$tbxPassword"]`, q.pass);
         yield page.type(`input[name="ctl00$ctl00$cphWrapper$cphContent$tbxAccountNumber"]`, q.code);
